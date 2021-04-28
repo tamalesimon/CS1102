@@ -2,20 +2,20 @@ import javax.swing.JOptionPane;
 
 public class Quiz {
 
-    static int nQuestions = 0;
-    static int nCorrect = 0; 
+    static int nQuestions = 0; // number of questions declaration
+    static int nCorrect = 0; // number of correct questions declarations
 
     public static void main(String[] args) {
-        
+
         String question = "Who is the strongest avenger?\n";
         question += "A. Hulk\n";
         question += "B. Hawkeye\n";
         question += "C. Captain America\n";
         question += "D. Iron Man\n";
-        
+
         check(question, "A");
 
-       String question1 = "What is the most common colour of toilet paper in France?\n";
+        String question1 = "What is the most common colour of toilet paper in France?\n";
         question1 += "A. Red\n";
         question1 += "B. White\n";
         question1 += "C. Green\n";
@@ -30,15 +30,15 @@ public class Quiz {
         question2 += "D. Norway\n";
         question2 += "E. Uganda\n";
 
-        check(question2, "C"); 
+        check(question2, "C");
 
-
-        JOptionPane.showMessageDialog(null, nCorrect+" "+ "out of"+" " +nQuestions);
-               //answer = answer.toUpperCase();
+            //out of message display
+        JOptionPane.showMessageDialog(null, nCorrect + " " + "out of" + " " + nQuestions);
+        // answer = answer.toUpperCase();
 
     }
 
-    static String ask(String question) {
+    static String ask(String question) { //Question asking Method
 
         String answer;
         while (true) {
@@ -46,25 +46,25 @@ public class Quiz {
             answer = JOptionPane.showInputDialog(question);
             answer = answer.toUpperCase();
 
-            if (!(answer.equals("A") || answer.equals("B") ||
-            answer.equals("C") || answer.equals("D") ||answer.equals("E"))) {
+            if (!(answer.equals("A") || answer.equals("B") || answer.equals("C") || answer.equals("D")
+                    || answer.equals("E"))) {
                 JOptionPane.showMessageDialog(null, "invalid answer, please enter A, B, C, D.");
             } else {
                 return answer;
-            }   
+            }
         }
     }
 
-    static void check(String question, String correctAnswer) {
-        
-        nQuestions = nQuestions+1;
+    static void check(String question, String correctAnswer) { //Answer Checking method
+
+        nQuestions = nQuestions + 1;
         String answer = ask(question);
         if (answer.equals(correctAnswer)) {
             JOptionPane.showMessageDialog(null, "Correct!");
-            nCorrect = nCorrect+1;
-        } else 
-            JOptionPane.showMessageDialog(null, "Incorrect, the correct answer is" +" "+correctAnswer);
-            
+            nCorrect = nCorrect + 1;
+        } else
+            JOptionPane.showMessageDialog(null, "Incorrect, the correct answer is" + " " + correctAnswer);
+
     }
 
 }
